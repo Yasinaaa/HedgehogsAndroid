@@ -1,4 +1,4 @@
-package ru.android.hedgehogs.hedgehogs;
+package ru.android.hedgehogs;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("ru.android.hedgehogs.hedgehogs", appContext.getPackageName());
+        assertEquals("ru.android.hedgehogs", appContext.getPackageName());
     }
 }

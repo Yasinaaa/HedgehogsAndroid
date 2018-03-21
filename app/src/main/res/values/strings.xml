@@ -1,12 +1,13 @@
 <resources>
     <string name="app_name">Hedgehogs</string>
-    <string name="title_home">Load</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="videos">Videos</string>
+    <string name="load">Load</string>
+    <string name="settings">Settings</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="sign_up">Sign Up</string>
     <string name="sign_up_with">Sign up with</string>
     <string name="forgot_your_password">Forgot password</string>
     <string name="create_account">Create account</string>
+    <string name="tap_here">Tap here to select the video</string>
 </resources>

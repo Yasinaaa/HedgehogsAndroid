@@ -1,4 +1,4 @@
-package ru.android.hedgehogs.hedgehogs;
+package ru.android.hedgehogs;
 
 import org.junit.Test;
 
