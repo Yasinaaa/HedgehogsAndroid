@@ -1,6 +1,5 @@
 package ru.android.hedgehogs.main.load;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,10 +10,9 @@ import android.widget.TextView;
 import ru.android.hedgehogs.R;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link LoadFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * Created by yasina on 22.03.18.
  */
+
 public class LoadFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";

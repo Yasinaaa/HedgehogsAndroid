@@ -10,4 +10,8 @@
     <string name="forgot_your_password">Forgot password</string>
     <string name="create_account">Create account</string>
     <string name="tap_here">Tap here to select the video</string>
+    <string name="quality">Quality:</string>
+    <string name="original_size">Original size:</string>
+    <string name="current_size">Current size</string>
+
 </resources>

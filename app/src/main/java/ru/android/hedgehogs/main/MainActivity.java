@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -12,10 +13,17 @@ import android.view.MenuItem;
 
 import ru.android.hedgehogs.R;
 import ru.android.hedgehogs.main.load.LoadFragment;
+import ru.android.hedgehogs.main.settings.SettingsFragment;
+import ru.android.hedgehogs.main.videos.VideoFragment;
+
+/**
+ * Created by yasina on 20.03.18.
+ */
 
 public class MainActivity extends AppCompatActivity {
 
     private FragmentManager mFragmentManager;
+    private Fragment mFragment;
     Toolbar mToolbar;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -23,23 +31,28 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            FragmentTransaction transaction = mFragmentManager.beginTransaction();
-            transaction.addToBackStack(null);
-            switch (item.getItemId()) {
-                case R.id.navigation_video:
-
-                    return true;
-                case R.id.navigation_load:
-                    transaction.replace(R.id.fl_main, new LoadFragment());
-                    transaction.commit();
-                    return true;
-                case R.id.navigation_settings:
-
-                    return true;
-            }
-            return false;
+           return setFragment(item.getItemId());
         }
     };
+
+    private boolean setFragment(int id){
+        FragmentTransaction transaction = mFragmentManager.beginTransaction();
+        transaction.addToBackStack(null);
+        switch (id) {
+            case R.id.navigation_video:
+                mFragment = new VideoFragment();
+                break;
+            case R.id.navigation_load:
+                mFragment = new LoadFragment();
+                break;
+            case R.id.navigation_settings:
+                mFragment = new SettingsFragment();
+                break;
+        }
+        transaction.replace(R.id.fl_main, mFragment);
+        transaction.commit();
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             mToolbar.setTitle(R.string.app_name);
             mToolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
         }
-
+        setFragment(R.id.navigation_video);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }

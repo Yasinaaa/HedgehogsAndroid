@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".sign.SignInActivity"/>
-
+        <activity android:name=".main.videos.item.ItemVideoActivity"/>
 
     </application>
 
