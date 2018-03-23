@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,29 +7,214 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@android:color/white">
 
-    <VideoView
-        android:visibility="gone"
-        android:id="@+id/videoview"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_video"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/black"
-        android:src="@drawable/ex3"/>
+        <VideoView
+            android:visibility="gone"
+            android:id="@+id/videoview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
 
-    <ImageView
-        android:id="@+id/iv_play"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="@+id/iv_video"
-        app:layout_constraintEnd_toEndOf="@+id/iv_video"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_video"
-        app:layout_constraintTop_toTopOf="@+id/iv_video"
-        android:background="@mipmap/ic_play"/>
+        <ImageView
+            android:id="@+id/iv_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/black"
+            android:src="@drawable/ex3"/>
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/iv_icon_video"
+            android:layout_width="95dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@android:color/black"
+            android:background="@drawable/play"
+            android:elevation="20dp"
+            android:layout_marginTop="69dp"
+            app:layout_constraintStart_toStartOf="@+id/iv_icon"
+            app:layout_constraintEnd_toEndOf="@+id/iv_icon"
+            app:layout_constraintTop_toTopOf="@+id/iv_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_icon"/>
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/black"
+            android:src="@drawable/hedgehog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_video"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/download"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/iv_icon"
+            app:layout_constraintStart_toStartOf="@+id/iv_icon"
+            app:layout_constraintEnd_toEndOf="@+id/iv_icon"/>
+
+        <ImageView
+            android:id="@+id/iv_play"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/iv_video"
+            app:layout_constraintEnd_toEndOf="@+id/iv_video"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_video"
+            app:layout_constraintTop_toTopOf="@+id/iv_video"
+            android:background="@mipmap/ic_play"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/iv_video"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Title1"/>
+
+        <TextView
+            android:id="@+id/tv_quality"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Quality: 720"/>
+
+        <TextView
+            android:id="@+id/tv_original_size"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_quality"
+            android:text="Original size: 3.0 mb" />
+
+        <TextView
+            android:id="@+id/tv_current_size"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_original_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Current size: 15.0 mb"/>
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/description"
+            android:textSize="20sp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/iv_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/et_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/cell_shape"
+            android:gravity="start"
+            android:imeOptions="actionNext"
+            android:inputType="textMultiLine"
+            android:letterSpacing="0.1"
+            android:maxEms="1000"
+            android:textColor="@android:color/black"
+            android:textCursorDrawable="@null"
+            android:textSize="16sp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:visibility="visible"
+            android:minHeight="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description"
+            android:text="fjkghhh" />
+
+        <TextView
+            android:id="@+id/tv_description_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="5dp"
+            android:gravity="end"
+            android:letterSpacing="0.02"
+            android:text="@string/max_1000"
+            android:textColor="#1d1d26"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_description" />
+
+        <ImageView
+            android:id="@+id/iv_share"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:background="@drawable/share"
+            android:layout_marginStart="13dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_num"/>
+
+        <ImageView
+            android:id="@+id/iv_share_play"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@mipmap/ic_play"
+            android:layout_marginStart="13dp"
+            android:backgroundTint="@android:color/black"
+            android:elevation="20dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toTopOf="@+id/iv_share"
+            app:layout_constraintEnd_toEndOf="@+id/iv_share"/>
+
+        <TextView
+            android:id="@+id/tv_share"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/share"
+            android:textSize="20sp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="13dp"
+            android:paddingTop="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_share"
+            app:layout_constraintStart_toEndOf="@+id/iv_share_play"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

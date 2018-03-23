@@ -12,6 +12,22 @@
     <string name="tap_here">Tap here to select the video</string>
     <string name="quality">Quality:</string>
     <string name="original_size">Original size:</string>
-    <string name="current_size">Current size</string>
-
+    <string name="current_size">Current size:</string>
+    <string name="description">Description</string>
+    <string name="title">Title</string>
+    <string name="max_1000">1000 max</string>
+    <string name="share">Share on social networks</string>
+    <string name="password_upper">PASSWORD</string>
+    <string name="old_password">OLD PASSWORD</string>
+    <string name="verify_password">VERIFY PASSWORD</string>
+    <string name="username_upper">USERNAME</string>
+    <string name="regional_options">REGIONAL OPTION</string>
+    <string name="language">Language</string>
+    <string name="log_out">LOG OUT</string>
+    <string name="download">Download</string>
+    <string name="sending">Sending</string>
+    <string name="notification_text">Your video Title1 is ready to view and download</string>
+    <string name="success_sent">Your Title1\n video was successfully\nsent</string>
+    <string name="success_saved">Your Title1\n video was successfully\nsaved</string>
+    <string name="notify_you">We will notify you\nwhen your video will be\n ready for download</string>
 </resources>

@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         mFragmentManager = getSupportFragmentManager();
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            mToolbar.setTitle(R.string.app_name);
+            mToolbar.setTitle(R.string.videos);
             mToolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
         }
         setFragment(R.id.navigation_video);

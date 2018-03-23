@@ -21,7 +21,16 @@
         </activity>
         <activity android:name=".sign.SignInActivity"/>
         <activity android:name=".main.videos.item.ItemVideoActivity"/>
-
+        <activity android:name=".main.download.DownloadActivity"/>
+        <receiver android:name=".notification.AlarmReceiver">
+        </receiver>
+        <receiver android:name=".notification.AlarmBootReceiver"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED">
+                </action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
