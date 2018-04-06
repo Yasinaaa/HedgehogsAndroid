@@ -44,4 +44,17 @@ dependencies {
 
     compile "com.jakewharton:butterknife:${butterknife_lib_version}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_lib_version}"
+
+    //Dependency Injection
+    implementation 'com.google.dagger:dagger:2.5'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.5'
+
+    //Network
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.3.1'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.3.1'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-simplexml:2.1.0'
+    implementation 'javax.annotation:javax.annotation-api:1.2'
 }
