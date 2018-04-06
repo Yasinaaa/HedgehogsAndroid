@@ -1,4 +1,4 @@
-package ru.android.hedgehogs.main.videos;
+package ru.android.hedgehogs.main.videos.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

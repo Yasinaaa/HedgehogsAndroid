@@ -13,8 +13,9 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import ru.android.hedgehogs.R;
+import ru.android.hedgehogs.main.videos.adapter.Video;
+import ru.android.hedgehogs.main.videos.adapter.VideosAdapter;
 import ru.android.hedgehogs.main.videos.item.ItemVideoActivity;
 
 /**

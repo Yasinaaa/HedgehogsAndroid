@@ -1,4 +1,4 @@
-package ru.android.hedgehogs.main.videos;
+package ru.android.hedgehogs.main.videos.adapter;
 
 /**
  * Created by yasina on 22.03.18.

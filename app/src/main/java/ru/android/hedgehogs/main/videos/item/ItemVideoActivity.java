@@ -28,7 +28,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class ItemVideoActivity extends AppCompatActivity {
 
     //@BindView(R.id.videoview)
-    //VideoView mVideoview;
+    //MainView mVideoview;
     @BindView(R.id.iv_video)
     ImageView mIvVideo;
     @BindView(R.id.iv_icon_video)
