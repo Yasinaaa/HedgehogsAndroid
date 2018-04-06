@@ -15,7 +15,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
-import ru.android.hedgehogs.App;
+import ru.android.hedgehogs.app.App;
 import ru.android.hedgehogs.network.api.API;
 
 /**
