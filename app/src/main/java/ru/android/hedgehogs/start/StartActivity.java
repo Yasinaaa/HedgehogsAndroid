@@ -44,7 +44,8 @@ public class StartActivity extends
             Intent intent = new Intent(StartActivity.this, SignInActivity.class);
             startActivity(intent);
             finish();
-        }, 2000);
+        }, 0);
+        //}, 2000);
     }
 
     @Override

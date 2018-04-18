@@ -11,4 +11,5 @@ public class Resources {
     public final static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
     public final static String TAG_FRAGMENT = "tag_fragment";
     public static final String ACTION_EXTRA = "action";
+    public static final String URL = "http://hedgehogs-ml.herokuapp.com/";
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.Window;
@@ -29,6 +30,22 @@ public abstract class BaseActivity
         extends MvpActivity<V, P> implements BaseView.View{
 
     protected Unbinder unbinder;
+
+
+    @CallSuper
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
+
+    @CallSuper
+    @Override
+    public void onPause() {
+        super.onPause();
+        presenter.onPause();
+        hideLoading();
+    }
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -58,6 +75,11 @@ public abstract class BaseActivity
     @Override
     public void showError(String text) {
         //TODO: show error dialog
+    }
+
+    @Override
+    public void hideLoading() {
+        //TODO: show hide loading
     }
 
     public void setTransparentStatusBar(){

@@ -1,4 +1,5 @@
 <resources>
+    <string name="error">Error</string>
     <string name="app_name">Hedgehogs</string>
     <string name="videos">Videos</string>
     <string name="load">Load</string>
