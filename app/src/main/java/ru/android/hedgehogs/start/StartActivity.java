@@ -45,15 +45,15 @@ public class StartActivity extends
         Handler handler = new Handler();
         handler.postDelayed(() -> {
             Intent intent = null;
-            if (PrefUtils.getAuthToken(StartActivity.this) == null) {
+            if (PrefUtils.getAuthToken(StartActivity.this).equals("")) {
                 intent = new Intent(StartActivity.this, SignInActivity.class);
             }else {
                 intent = new Intent(StartActivity.this, MainActivity.class);
             }
             startActivity(intent);
             finish();
-        }, 0);
-        //}, 2000);
+        //}, 0);
+        }, 2000);
     }
 
     @Override
