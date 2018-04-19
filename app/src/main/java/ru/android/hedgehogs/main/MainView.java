@@ -10,8 +10,7 @@ import ru.android.hedgehogs.base.BaseView;
 public interface MainView {
 
     interface View extends BaseView.View {
-        void setLogin();
-        void setRegistration();
+
     }
 
     interface Presenter extends BaseView.Presenter<MainView.View>{

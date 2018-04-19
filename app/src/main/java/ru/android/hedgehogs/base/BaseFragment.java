@@ -2,6 +2,7 @@ package ru.android.hedgehogs.base;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.view.View;
 
@@ -13,6 +14,8 @@ import butterknife.Unbinder;
 import ru.android.hedgehogs.R;
 import ru.android.hedgehogs.app.App;
 import ru.android.hedgehogs.injection.project.ProjectComponent;
+import ru.android.hedgehogs.network.ServiceHelper;
+import ru.android.hedgehogs.network.actions.Action;
 import ru.android.hedgehogs.utils.Component;
 import ru.android.hedgehogs.utils.Preconditions;
 import ru.android.hedgehogs.utils.Resources;
@@ -32,6 +35,21 @@ public abstract class BaseFragment<V extends BaseView.View,
 
     public View mView;
     protected Unbinder unbinder;
+
+    @CallSuper
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
+
+    @CallSuper
+    @Override
+    public void onPause() {
+        super.onPause();
+        presenter.onPause();
+        hideLoading();
+    }
 
     @Override
     public void onDestroyView() {
@@ -74,4 +92,23 @@ public abstract class BaseFragment<V extends BaseView.View,
                 .commit();
     }
 
+    @Override
+    public void showLoading() {
+        //TODO: show loading dialog
+    }
+
+    @Override
+    public void showError(String text) {
+        //TODO: show error dialog
+    }
+
+    @Override
+    public void hideLoading() {
+        //TODO: show hide loading
+    }
+
+    @Override
+    public void startAction(Action action) {
+        ServiceHelper.getInstance().startActionService(getActivity(), action);
+    }
 }

@@ -3,6 +3,7 @@ package ru.android.hedgehogs.main;
 import android.app.Activity;
 
 import ru.android.hedgehogs.base.BasePresenter;
+import ru.android.hedgehogs.utils.PrefUtils;
 
 /**
  * Created by yasina on 06.04.18.
@@ -17,7 +18,7 @@ public class MainPresenter extends BasePresenter<MainView.View>
 
     public MainPresenter(Activity mActivity) {
         this.mActivity = mActivity;
-        //mToken = PrefUtils.getAuthToken(mActivity.getBaseContext());
+        mToken = PrefUtils.getAuthToken(mActivity.getBaseContext());
         //mId = PrefUtils.getAuthId(mActivity.getBaseContext());
     }
 }

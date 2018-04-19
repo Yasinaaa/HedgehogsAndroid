@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 
 import ru.android.hedgehogs.R;
 import ru.android.hedgehogs.base.BaseActivity;
 import ru.android.hedgehogs.injection.project.ProjectComponent;
+import ru.android.hedgehogs.main.MainActivity;
 import ru.android.hedgehogs.sign.SignInActivity;
+import ru.android.hedgehogs.utils.PrefUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
@@ -36,12 +39,17 @@ public class StartActivity extends
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         //getComponent(ProjectComponent.class).inject(this);
-
+        Log.d("d", PrefUtils.getAuthToken(StartActivity.this));
         TextView textView = (TextView) findViewById(R.id.tv_title);
         textView.setShadowLayer(1.5f, -5, -5, Color.BLACK);
         Handler handler = new Handler();
         handler.postDelayed(() -> {
-            Intent intent = new Intent(StartActivity.this, SignInActivity.class);
+            Intent intent = null;
+            if (PrefUtils.getAuthToken(StartActivity.this) == null) {
+                intent = new Intent(StartActivity.this, SignInActivity.class);
+            }else {
+                intent = new Intent(StartActivity.this, MainActivity.class);
+            }
             startActivity(intent);
             finish();
         }, 0);

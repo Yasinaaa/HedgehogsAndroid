@@ -11,6 +11,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.io.IOException;
 import java.lang.reflect.Type;
 
+import okhttp3.Credentials;
 import retrofit2.Response;
 import ru.android.hedgehogs.network.events.login.LoginErrorEvent;
 import ru.android.hedgehogs.network.events.login.LoginSuccessEvent;
@@ -39,7 +40,8 @@ public class ActionLogin extends BaseAction<TokenRO>{
 
     @Override
     protected Response<TokenRO> makeRequest() throws IOException {
-        return getRest().getToken(username, password, grantType).execute();
+        String authToken = Credentials.basic("testjwtclientid", "secret");
+        return getRest().getToken(username, password, grantType, authToken).execute();
     }
 
     @Override

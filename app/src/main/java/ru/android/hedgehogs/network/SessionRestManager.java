@@ -2,6 +2,7 @@ package ru.android.hedgehogs.network;
 
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -26,18 +27,15 @@ public class SessionRestManager {
       return instance;
     }
 
+
     private OkHttpClient setupHttpClientWithAuth() {
       OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
       httpClient.addInterceptor(chain -> {
         Request original = chain.request();
-
         Request request = original.newBuilder()
             .header("Content-Type", "application/json")
-            //.header("Accept-Encoding", "identity")
             .method(original.method(), original.body())
             .build();
-
-
         return chain.proceed(request);
       });
 

@@ -7,36 +7,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 import ru.android.hedgehogs.R;
+import ru.android.hedgehogs.base.BaseFragment;
+import ru.android.hedgehogs.network.response_object.VideoRO;
 
 /**
  * Created by yasina on 22.03.18.
  */
 
-public class LoadFragment extends Fragment {
-
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-    private String mParam1;
-    private String mParam2;
-    private View mView;
-
-    public static LoadFragment newInstance(String param1, String param2) {
-        LoadFragment fragment = new LoadFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+public class LoadFragment extends BaseFragment<LoadView.View, LoadView.Presenter>
+        implements LoadView.View {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public LoadView.Presenter createPresenter() {
+        return new LoadPresenter(getActivity());
     }
 
     @Override
@@ -44,7 +30,6 @@ public class LoadFragment extends Fragment {
                              Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_load, container,
                 false);
-
         return mView;
     }
 

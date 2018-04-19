@@ -31,7 +31,6 @@ public abstract class BaseActivity
 
     protected Unbinder unbinder;
 
-
     @CallSuper
     @Override
     public void onResume() {

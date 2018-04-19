@@ -9,10 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.android.hedgehogs.R;
+import ru.android.hedgehogs.network.response_object.VideoRO;
 
 /**
  * Created by yasina on 22.03.18.
@@ -20,11 +22,11 @@ import ru.android.hedgehogs.R;
 
 public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideoViewHolder> {
 
-    private ArrayList<Video> mData;
+    private List<VideoRO> mData;
     private ItemClickListener mItemClickListener;
     private Context mContext;
 
-    public VideosAdapter(ArrayList<Video> mData, ItemClickListener mItemClickListener) {
+    public VideosAdapter(List<VideoRO> mData, ItemClickListener mItemClickListener) {
         this.mData = mData;
         this.mItemClickListener = mItemClickListener;
     }
@@ -38,15 +40,22 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideoViewH
 
     @Override
     public void onBindViewHolder(VideoViewHolder holder, int position) {
-        Video video = mData.get(position);
-        holder.mTvTitle.setText(video.getTitle());
+        VideoRO video = mData.get(position);
+        holder.mTvTitle.setText(video.getName());
+        holder.mIvVideo.setImageResource(R.drawable.ex3);
+        holder.mTvQuality.setText(mContext.getString(R.string.quality) + 720);
+        holder.mTvOriginalSize.setText(mContext.getString(R.string.original_size) + 3
+                + "mb");
+        holder.mTvCurrentSize.setText(mContext.getString(R.string.current_size) + 15
+                + "mb");
+        /*holder.mTvTitle.setText(video.getTitle());
         if(position !=0)
             holder.mIvVideo.setImageResource(video.getImageTemp());
         holder.mTvQuality.setText(mContext.getString(R.string.quality) + video.getQuality());
         holder.mTvOriginalSize.setText(mContext.getString(R.string.original_size) + video.getOriginalSize()
         + video.getOriginalSizeType());
         holder.mTvCurrentSize.setText(mContext.getString(R.string.current_size) + video.getCurrentSize()
-        + video.getCurrentSizeType());
+        + video.getCurrentSizeType());*/
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +92,6 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideoViewH
     }
 
     public interface ItemClickListener{
-        void onClick(Video video);
+        void onClick(VideoRO video);
     }
 }
