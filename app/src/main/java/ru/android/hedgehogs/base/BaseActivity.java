@@ -82,13 +82,7 @@ public abstract class BaseActivity
     }
 
     public void setTransparentStatusBar(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window w = getWindow();
-            View decorView = w.getDecorView();
-            int uiOptions =  View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
-            decorView.setSystemUiVisibility(uiOptions);
-        }
+
     }
 
     @Override

@@ -46,6 +46,7 @@ public class VideoFragment extends BaseFragment<VideoView.View, VideoView.Presen
         mView = inflater.inflate(R.layout.fragment_videos, container,
                 false);
         ButterKnife.bind(this, mView);
+        setAdapter(new ArrayList<VideoRO>());
         return mView;
     }
 
@@ -57,10 +58,21 @@ public class VideoFragment extends BaseFragment<VideoView.View, VideoView.Presen
     @Override
     public void setAdapter(List<VideoRO> list) {
         mRv.setLayoutManager(new LinearLayoutManager(getContext()));
-        /*list.add(new Video(0, "Title1", "mb",
-                "mb", null, R.drawable.ex3,
-                720, 15, 3, "2:58"));
-        list.add(new Video(0, "Title2", "mb",
+        VideoRO videoRO = new VideoRO();
+        videoRO.setId(0);
+        videoRO.setName("Title1");
+        videoRO.setCurrentSizeType("mb");
+        videoRO.setOriginalSizeType("mb");
+        //videoRO.setImageTemp(R.drawable.ex3);
+        videoRO.setQuality(720);
+        videoRO.setCurrentSize(3);
+        videoRO.setOriginalSize(15);
+        videoRO.setVideoDuration("2:58");
+
+
+        list.add(videoRO);
+        list.add(videoRO);
+        /*list.add(new Video(0, "Title2", "mb",
                 "mb", null, R.drawable.ex2,
                 720, 35, 16, "2:58"));*/
         mVideosAdapter = new VideosAdapter(list, new VideosAdapter.ItemClickListener() {

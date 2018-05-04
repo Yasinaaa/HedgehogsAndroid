@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+
 import ru.android.hedgehogs.R;
 import ru.android.hedgehogs.base.BaseActivity;
 import ru.android.hedgehogs.injection.project.ProjectComponent;
@@ -40,16 +42,17 @@ public class StartActivity extends
         setContentView(R.layout.activity_start);
         //getComponent(ProjectComponent.class).inject(this);
         Log.d("d", PrefUtils.getAuthToken(StartActivity.this));
+        Log.d("Firebase", "token "+ FirebaseInstanceId.getInstance().getToken());
         TextView textView = (TextView) findViewById(R.id.tv_title);
         textView.setShadowLayer(1.5f, -5, -5, Color.BLACK);
         Handler handler = new Handler();
         handler.postDelayed(() -> {
             Intent intent = null;
-            if (PrefUtils.getAuthToken(StartActivity.this).equals("")) {
+           // if (PrefUtils.getAuthToken(StartActivity.this).equals("")) {
                 intent = new Intent(StartActivity.this, SignInActivity.class);
-            }else {
-                intent = new Intent(StartActivity.this, MainActivity.class);
-            }
+            //}else {
+           //     intent = new Intent(StartActivity.this, MainActivity.class);
+           // }
             startActivity(intent);
             finish();
         //}, 0);

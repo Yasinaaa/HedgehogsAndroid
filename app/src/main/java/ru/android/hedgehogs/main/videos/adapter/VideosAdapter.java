@@ -42,7 +42,7 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideoViewH
     public void onBindViewHolder(VideoViewHolder holder, int position) {
         VideoRO video = mData.get(position);
         holder.mTvTitle.setText(video.getName());
-        holder.mIvVideo.setImageResource(R.drawable.ex3);
+        //holder.mIvVideo.setImageResource(R.drawable.ex3);
         holder.mTvQuality.setText(mContext.getString(R.string.quality) + 720);
         holder.mTvOriginalSize.setText(mContext.getString(R.string.original_size) + 3
                 + "mb");

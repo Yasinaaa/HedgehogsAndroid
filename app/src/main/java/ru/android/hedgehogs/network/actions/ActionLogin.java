@@ -61,9 +61,14 @@ public class ActionLogin extends BaseAction<TokenRO>{
 
     private LoginErrorRO parseLoginError(String text)
             throws IOException {
-        Gson gson = new Gson();
-        Type type = new TypeToken<LoginErrorRO>() {}.getType();
-        return gson.fromJson(text, type);
+        try {
+            Gson gson = new Gson();
+            Type type = new TypeToken<LoginErrorRO>() {
+            }.getType();
+            return gson.fromJson(text, type);
+        }catch (java.lang.IllegalStateException e){
+            return null;
+        }
     }
 
     @Override

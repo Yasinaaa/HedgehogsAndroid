@@ -92,9 +92,9 @@ public class SignInActivity extends BaseActivity<SignInView.View, SignInView.Pre
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.login(mEtUsername.getText().toString(),
-                        mEtPassword.getText().toString());
-
+                //presenter.login(mEtUsername.getText().toString(),
+                  //      mEtPassword.getText().toString());
+                openNextView();
             }
         });
         //presenter.login("admin.admin", "jwtpass");
