@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import ru.android.hedgehogs.Manifest;
 import ru.android.hedgehogs.R;
 import ru.android.hedgehogs.base.BaseActivity;
 import ru.android.hedgehogs.base.BasePresenter;
@@ -87,14 +89,18 @@ public class SignInActivity extends BaseActivity<SignInView.View, SignInView.Pre
         setContentView(R.layout.activity_signin);
         ButterKnife.bind(this);
 
+        /*ActivityCompat.requestPermissions(SignInActivity.this,
+                new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE},
+                1);
+        openNextView();*/
         mTvTitle.setShadowLayer(1.5f, -5, -5, Color.BLACK);
         Button button = (Button) findViewById(R.id.btn_sign_up);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //presenter.login(mEtUsername.getText().toString(),
-                  //      mEtPassword.getText().toString());
-                openNextView();
+                presenter.login(mEtUsername.getText().toString(),
+                        mEtPassword.getText().toString());
+                //openNextView();
             }
         });
         //presenter.login("admin.admin", "jwtpass");

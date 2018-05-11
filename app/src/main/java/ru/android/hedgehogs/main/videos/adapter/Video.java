@@ -7,6 +7,9 @@ package ru.android.hedgehogs.main.videos.adapter;
 public class Video {
 
     private int id;
+    private String url;
+    private String deviceId;
+    private String status;
     private String title, currentSizeType, originalSizeType;
     private byte[] image;
     private int imageTemp, quality;

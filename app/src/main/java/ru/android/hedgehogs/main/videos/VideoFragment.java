@@ -58,7 +58,7 @@ public class VideoFragment extends BaseFragment<VideoView.View, VideoView.Presen
     @Override
     public void setAdapter(List<VideoRO> list) {
         mRv.setLayoutManager(new LinearLayoutManager(getContext()));
-        VideoRO videoRO = new VideoRO();
+        /*VideoRO videoRO = new VideoRO();
         videoRO.setId(0);
         videoRO.setName("Title1");
         videoRO.setCurrentSizeType("mb");
@@ -71,7 +71,7 @@ public class VideoFragment extends BaseFragment<VideoView.View, VideoView.Presen
 
 
         list.add(videoRO);
-        list.add(videoRO);
+        list.add(videoRO);*/
         /*list.add(new Video(0, "Title2", "mb",
                 "mb", null, R.drawable.ex2,
                 720, 35, 16, "2:58"));*/

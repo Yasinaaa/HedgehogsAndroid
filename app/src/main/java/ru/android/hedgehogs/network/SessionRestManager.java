@@ -33,14 +33,14 @@ public class SessionRestManager {
       httpClient.addInterceptor(chain -> {
         Request original = chain.request();
         Request request = original.newBuilder()
-            .header("Content-Type", "application/json")
+            //.header("Content-Type", "application/json")
             .method(original.method(), original.body())
             .build();
         return chain.proceed(request);
       });
 
       httpClient.connectTimeout(1, TimeUnit.MINUTES);
-      httpClient.writeTimeout(1, TimeUnit.MINUTES);
+      httpClient.writeTimeout(2, TimeUnit.MINUTES);
       httpClient.readTimeout(1, TimeUnit.MINUTES);
 
       HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
