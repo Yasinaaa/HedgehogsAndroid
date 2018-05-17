@@ -56,7 +56,8 @@
             </intent-filter>
         </service>
 
-
+        <activity
+            android:name=".auth.AuthActivity"/>
 
     </application>
 

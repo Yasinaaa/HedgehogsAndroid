@@ -39,7 +39,6 @@ public interface API {
     @POST("/enrollment")
     Call<ResponseBody> registration(@Field("email") String email, @Field("password") String password);
 
-
     @Multipart
     @POST("/load")
     Call<ResponseBody> loadVideo(@Part MultipartBody.Part filePart,
@@ -49,4 +48,10 @@ public interface API {
                                  @Part("originalSizeType") String originalSizeType,
                                  @Header("Authorization") String token,
                                  @Part("deviceId") String deviceId);
+
+    @GET("/download")
+    Call<ResponseBody> downloadVideo(@Query("videoId") int videoId, @Header("Authorization") String token);
+
+    @POST("/enrollment")
+    Call<ResponseBody> enrollment(@Query("email") String email, @Query("password") String password);
 }

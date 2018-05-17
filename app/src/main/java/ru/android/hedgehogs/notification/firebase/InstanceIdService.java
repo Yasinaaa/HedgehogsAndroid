@@ -12,6 +12,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import ru.android.hedgehogs.utils.PrefUtils;
+
 /**
  * Created by yasina on 20.04.18.
  */
@@ -25,7 +27,7 @@ public class InstanceIdService extends FirebaseInstanceIdService {
         super.onTokenRefresh();
         String token = FirebaseInstanceId.getInstance().getToken();
         Log.d("tag", token);
-        Toast.makeText(getApplicationContext(), token, Toast.LENGTH_LONG).show();
+        PrefUtils.saveFirebaseId(getApplicationContext(), token);
         //sends this token to the server
         //sendToServer(token);
     }

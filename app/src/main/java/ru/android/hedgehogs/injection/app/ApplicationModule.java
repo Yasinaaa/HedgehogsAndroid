@@ -48,7 +48,7 @@ public class ApplicationModule {
         //TODO: change temporary values to real
         Retrofit retrofit =  new Retrofit.Builder()
                 .addConverterFactory(SimpleXmlConverterFactory.create(serializer))
-                .baseUrl("http://188.168.96.46:2120/")
+                .baseUrl("http://192.168.43.138:8080")
                 .client(okHttpClient)
                 .build();
 

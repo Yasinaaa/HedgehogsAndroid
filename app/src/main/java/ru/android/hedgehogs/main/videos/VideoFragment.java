@@ -79,6 +79,7 @@ public class VideoFragment extends BaseFragment<VideoView.View, VideoView.Presen
             @Override
             public void onClick(VideoRO video) {
                 Intent intent = new Intent(getActivity(), ItemVideoActivity.class);
+                intent.putExtra("device_id", video.getId());
                 startActivity(intent);
             }
         });

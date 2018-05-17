@@ -11,6 +11,24 @@ import android.support.annotation.Nullable;
 public class PrefUtils {
 
     private static final String PREF_AUTH_DATA = "pref_auth_data";
+    private static final String PREF_FIREBASE_ID = "pref_firebase_id";
+
+    @Nullable
+    public static String getFirebaseId(@Nullable final Context context) {
+        if (context == null) return null;
+
+        SharedPreferences sp =
+                PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+        return sp.getString(PREF_FIREBASE_ID, "");
+    }
+
+    public static void saveFirebaseId(@Nullable final Context context, @Nullable String authToken) {
+        if (context == null || authToken == null) return;
+        SharedPreferences sp =
+                PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+        sp.edit().remove(PREF_FIREBASE_ID).apply();
+        sp.edit().putString(PREF_FIREBASE_ID, authToken).apply();
+    }
 
     @Nullable
     public static String getAuthToken(@Nullable final Context context) {

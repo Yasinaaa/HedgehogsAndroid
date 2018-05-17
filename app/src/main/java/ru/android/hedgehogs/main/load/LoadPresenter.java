@@ -47,7 +47,7 @@ public class LoadPresenter extends BasePresenter<LoadView.View>
     public void sendVideo(String path, String title, int quality, int originalSize, String originalSizeType, String deviceId) {
         getView().showLoading();
         ActionSendVideo actionSendVideo = new ActionSendVideo(
-                mToken, path, title, quality, originalSize, originalSizeType, deviceId);
+                mToken, path, title, quality, originalSize, originalSizeType, PrefUtils.getFirebaseId(mActivity));
         getView().startAction(actionSendVideo);
     }
 

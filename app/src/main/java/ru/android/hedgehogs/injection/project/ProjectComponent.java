@@ -26,7 +26,7 @@ import ru.android.hedgehogs.start.StartPresenter;
 public interface ProjectComponent {
 
     /*void inject(StartActivity activity);
-    void inject(SignInActivity activity);
+    void inject(AuthActivity activity);
     void inject(MainActivity activity);
     void inject(BaseActivity activity);
 

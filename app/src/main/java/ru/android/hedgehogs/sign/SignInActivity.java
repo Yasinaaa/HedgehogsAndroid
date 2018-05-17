@@ -1,5 +1,6 @@
 package ru.android.hedgehogs.sign;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,6 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.android.hedgehogs.Manifest;
 import ru.android.hedgehogs.R;
+import ru.android.hedgehogs.auth.AuthActivity;
 import ru.android.hedgehogs.base.BaseActivity;
 import ru.android.hedgehogs.base.BasePresenter;
 import ru.android.hedgehogs.main.MainActivity;
@@ -89,10 +91,6 @@ public class SignInActivity extends BaseActivity<SignInView.View, SignInView.Pre
         setContentView(R.layout.activity_signin);
         ButterKnife.bind(this);
 
-        /*ActivityCompat.requestPermissions(SignInActivity.this,
-                new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE},
-                1);
-        openNextView();*/
         mTvTitle.setShadowLayer(1.5f, -5, -5, Color.BLACK);
         Button button = (Button) findViewById(R.id.btn_sign_up);
         button.setOnClickListener(new View.OnClickListener() {
@@ -100,10 +98,16 @@ public class SignInActivity extends BaseActivity<SignInView.View, SignInView.Pre
             public void onClick(View v) {
                 presenter.login(mEtUsername.getText().toString(),
                         mEtPassword.getText().toString());
-                //openNextView();
             }
         });
-        //presenter.login("admin.admin", "jwtpass");
+        Activity activity = this;
+        mTvSignUpWith.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, AuthActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

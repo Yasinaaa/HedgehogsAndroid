@@ -105,7 +105,8 @@
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="4"
-        android:text="@string/sign_up_with"
+        android:padding="20dp"
+        android:text="@string/create_account"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="14sp"
@@ -114,6 +115,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:visibility="invisible"
         android:id="@+id/btn_google"
         android:layout_width="56dp"
         android:layout_height="57dp"
@@ -127,6 +129,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:visibility="invisible"
         android:id="@+id/btn_facebook"
         android:layout_width="56dp"
         android:layout_height="57dp"
@@ -140,6 +143,7 @@
         app:layout_constraintStart_toEndOf="@+id/btn_google" />
 
     <Button
+        android:visibility="invisible"
         android:id="@+id/btn_twitter"
         android:layout_width="56dp"
         android:layout_height="56dp"
@@ -153,6 +157,7 @@
         app:layout_constraintStart_toEndOf="@+id/btn_facebook" />
 
     <Button
+        android:visibility="invisible"
         android:id="@+id/btn_vk"
         android:layout_width="56dp"
         android:layout_height="56dp"
@@ -167,6 +172,7 @@
         app:layout_constraintStart_toEndOf="@+id/btn_twitter" />
 
     <TextView
+        android:visibility="invisible"
         android:id="@+id/tv_forgot_your_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -189,6 +195,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
+        android:visibility="invisible"
         android:id="@+id/tv_create_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

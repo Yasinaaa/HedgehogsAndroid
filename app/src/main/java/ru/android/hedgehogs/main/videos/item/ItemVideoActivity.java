@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -17,6 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.android.hedgehogs.R;
+import ru.android.hedgehogs.base.BaseActivity;
 import ru.android.hedgehogs.main.download.DownloadActivity;
 import ru.android.hedgehogs.notification.NotificationHelper;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -25,7 +27,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  * Created by yasina on 20.03.18.
  */
 
-public class ItemVideoActivity extends AppCompatActivity {
+public class ItemVideoActivity extends BaseActivity<ItemVideoView.View, ItemVideoView.Presenter>
+        implements ItemVideoView.View{
 
     //@BindView(R.id.videoview)
     //MainView mVideoview;
@@ -66,12 +69,19 @@ public class ItemVideoActivity extends AppCompatActivity {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
+    @NonNull
+    @Override
+    public ItemVideoView.Presenter createPresenter() {
+        return new ItemVideoPresenter(this);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
         ButterKnife.bind(this);
-        NotificationHelper.scheduleNotification(getApplicationContext(), Calendar.getInstance());
+
+        presenter.downloadVideo(getIntent().getIntExtra("device_id", 0));
     }
 
     @OnClick(R.id.iv_icon)
