@@ -15,11 +15,12 @@ import ru.android.hedgehogs.network.events.send_video.SendVideoSuccessEvent;
 public interface LoadView {
 
     interface View extends BaseView.View {
-
+        void showLoadingDialog();
+        void showSuccessFinishDialog();
     }
 
     interface Presenter extends BaseView.Presenter<LoadView.View>{
-        void sendVideo(String path, String title, int quality, int originalSize, String originalSizeType, String deviceId);
+        void sendVideo(String path, String title, int quality, int originalSize, String originalSizeType);
         void sendVideo(String path, String title);
         @Subscribe void onEvent(SendVideoSuccessEvent event);
         @Subscribe void onEvent(SendVideoErrorEvent event);

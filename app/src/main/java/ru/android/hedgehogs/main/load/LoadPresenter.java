@@ -40,14 +40,15 @@ public class LoadPresenter extends BasePresenter<LoadView.View>
     @Override
     public void sendVideo(String path, String title) {
         if (path != null)
-            sendVideo(path,title, 720, 1, "mb", "ei_5z7p9944:APA91bEn0tRZs418cQjG6VkYgEyqRHyaWuBRkr-pkmEcsofCTiN8FDezItANTdMBqzrKnApsHVSZNDnurFcQCnK8AOxCYafYMwqGIBSAbYStYD3FJedyc4v_dgTIwQGoT3ugyYwCiVtp");
+            sendVideo(path, title, 720, 1, "mb");
     }
 
     @Override
-    public void sendVideo(String path, String title, int quality, int originalSize, String originalSizeType, String deviceId) {
+    public void sendVideo(String path, String title, int quality, int originalSize, String originalSizeType) {
         getView().showLoading();
         ActionSendVideo actionSendVideo = new ActionSendVideo(
                 mToken, path, title, quality, originalSize, originalSizeType, PrefUtils.getFirebaseId(mActivity));
+        getView().showLoadingDialog();
         getView().startAction(actionSendVideo);
     }
 
@@ -55,11 +56,7 @@ public class LoadPresenter extends BasePresenter<LoadView.View>
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(SendVideoSuccessEvent event) {
         getView().hideLoading();
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mActivity)
-                .setTitle("Message")
-                .setMessage("Video successfully send")
-                .setCancelable(true);
-        alertDialogBuilder.show();
+        getView().showSuccessFinishDialog();
     }
 
     @Override

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "281965395742",
+    "firebase_url": "https://hedgehogs-5ce02.firebaseio.com",
+    "project_id": "hedgehogs-5ce02",
+    "storage_bucket": "hedgehogs-5ce02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281965395742:android:269c6bd11bdd8045",
+        "android_client_info": {
+          "package_name": "ru.android.hedgehogs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "281965395742-l0ouunejlv9lk7i7g98i383ic0fevdio.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_PtnJtU1Ki68Bi_X4yyFjdet4XPZnEL0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

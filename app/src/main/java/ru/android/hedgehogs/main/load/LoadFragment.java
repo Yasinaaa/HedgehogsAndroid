@@ -1,12 +1,12 @@
 package ru.android.hedgehogs.main.load;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +18,8 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import ru.android.hedgehogs.R;
 import ru.android.hedgehogs.base.BaseFragment;
-import ru.android.hedgehogs.utils.AndroidUtils;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -107,4 +105,26 @@ public class LoadFragment extends BaseFragment<LoadView.View, LoadView.Presenter
             return null;
     }
 
+    AlertDialog showLoadingBuilder, sendSuccessfulySend;
+    @Override
+    public void showLoadingDialog() {
+        LayoutInflater layoutInflater = LayoutInflater.from(getContext());
+        View downloadView = layoutInflater.inflate(R.layout.dialog_download, null);
+        showLoadingBuilder = new AlertDialog.Builder(getActivity())
+                .setView(downloadView)
+                .setCancelable(true).create();
+        showLoadingBuilder.show();
+    }
+
+    @Override
+    public void showSuccessFinishDialog() {
+        showLoadingBuilder.cancel();
+
+        LayoutInflater layoutInflater = LayoutInflater.from(getContext());
+        View downloadView = layoutInflater.inflate(R.layout.dialog_success_send, null);
+        sendSuccessfulySend = new AlertDialog.Builder(getActivity())
+                .setView(downloadView)
+                .setCancelable(true).create();
+        sendSuccessfulySend.show();
+    }
 }
