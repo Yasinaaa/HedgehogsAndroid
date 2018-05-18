@@ -158,12 +158,12 @@
             android:text="@string/regional_options"
             android:textColor="#9B9B9B"
             android:textSize="14sp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_old_password" />
 
         <TextView
-            android:visibility="visible"
+            android:visibility="invisible"
             android:id="@+id/tv_language_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
             android:textSize="18sp"
             android:textAllCaps="false"
             android:textStyle="normal"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_regional_options"
             android:text="English" />

@@ -23,6 +23,7 @@ import ru.android.hedgehogs.base.BaseActivity;
 import ru.android.hedgehogs.base.BasePresenter;
 import ru.android.hedgehogs.main.MainActivity;
 import ru.android.hedgehogs.utils.AndroidUtils;
+import ru.android.hedgehogs.utils.PrefUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
@@ -96,6 +97,7 @@ public class SignInActivity extends BaseActivity<SignInView.View, SignInView.Pre
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                PrefUtils.saveEmailToken(getBaseContext(), mEtUsername.getText().toString());
                 presenter.login(mEtUsername.getText().toString(),
                         mEtPassword.getText().toString());
             }

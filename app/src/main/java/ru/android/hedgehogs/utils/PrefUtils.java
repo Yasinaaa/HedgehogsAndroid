@@ -12,6 +12,7 @@ public class PrefUtils {
 
     private static final String PREF_AUTH_DATA = "pref_auth_data";
     private static final String PREF_FIREBASE_ID = "pref_firebase_id";
+    private static final String PREF_EMAIL = "pref_email";
 
     @Nullable
     public static String getFirebaseId(@Nullable final Context context) {
@@ -45,5 +46,22 @@ public class PrefUtils {
                 PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
         sp.edit().remove(PREF_AUTH_DATA).apply();
         sp.edit().putString(PREF_AUTH_DATA, authToken).apply();
+    }
+
+    @Nullable
+    public static String getEmailToken(@Nullable final Context context) {
+        if (context == null) return null;
+
+        SharedPreferences sp =
+                PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+        return sp.getString(PREF_EMAIL, "");
+    }
+
+    public static void saveEmailToken(@Nullable final Context context, @Nullable String authToken) {
+        if (context == null || authToken == null) return;
+        SharedPreferences sp =
+                PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+        sp.edit().remove(PREF_EMAIL).apply();
+        sp.edit().putString(PREF_EMAIL, authToken).apply();
     }
 }
