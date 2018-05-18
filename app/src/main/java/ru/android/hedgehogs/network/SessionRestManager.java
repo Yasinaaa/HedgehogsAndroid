@@ -8,6 +8,7 @@ import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import ru.android.hedgehogs.network.api.API;
+import ru.android.hedgehogs.network.api.API2;
 import ru.android.hedgehogs.utils.AndroidUtils;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
@@ -55,7 +56,15 @@ public class SessionRestManager {
             .addConverterFactory(JacksonConverterFactory.create())
             .build();
 
+    private final Retrofit REST_ADAPTER2=
+            new Retrofit.Builder().baseUrl("https://github.com/")
+                    .client(setupHttpClientWithAuth())
+                    .addConverterFactory(JacksonConverterFactory.create())
+                    .build();
+
     public API getRest(){return REST_ADAPTER.create(API.class);}
+
+    public API2 getRest2(){return REST_ADAPTER2.create(API2.class);}
 
     public Retrofit getRestAdapter() {
       return REST_ADAPTER;

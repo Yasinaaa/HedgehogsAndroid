@@ -9,6 +9,7 @@ import okhttp3.RequestBody;
 import retrofit2.Response;
 import ru.android.hedgehogs.network.SessionRestManager;
 import ru.android.hedgehogs.network.api.API;
+import ru.android.hedgehogs.network.api.API2;
 import ru.android.hedgehogs.network.events.base.NetworkErrorEvent;
 
 
@@ -30,6 +31,10 @@ public abstract class BaseAction<T> implements Action {
 
     protected API getRest(){
         return SessionRestManager.getInstance().getRest();
+    }
+
+    protected API2 getRest2(){
+        return SessionRestManager.getInstance().getRest2();
     }
 
     protected void processError(Response<?> response) {

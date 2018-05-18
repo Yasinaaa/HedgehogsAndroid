@@ -41,7 +41,8 @@ public class ActionDownloadVideo extends BaseAction<ResponseBody>{
     File file;
     @Override
     protected Response<ResponseBody> makeRequest() throws IOException {
-        return getRest().downloadVideo(deviceId,tokenType + token).execute();
+        //return getRest().downloadVideo(deviceId,tokenType + token).execute();
+        return getRest2().downloadVideo().execute();
     }
 
     @Override

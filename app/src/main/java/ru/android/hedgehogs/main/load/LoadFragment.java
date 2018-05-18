@@ -109,7 +109,7 @@ public class LoadFragment extends BaseFragment<LoadView.View, LoadView.Presenter
     @Override
     public void showLoadingDialog() {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-        View downloadView = layoutInflater.inflate(R.layout.dialog_download, null);
+        View downloadView = layoutInflater.inflate(R.layout.dialog_send_video, null);
         showLoadingBuilder = new AlertDialog.Builder(getActivity())
                 .setView(downloadView)
                 .setCancelable(true).create();

@@ -29,6 +29,7 @@ public class ItemVideoPresenter extends BasePresenter<ItemVideoView.View>
     private Activity mActivity;
     private int mId;
     private String mToken;
+    private String mTitle;
 
     public ItemVideoPresenter(Activity mActivity) {
         this.mActivity = mActivity;
@@ -37,9 +38,13 @@ public class ItemVideoPresenter extends BasePresenter<ItemVideoView.View>
     }
 
     @Override
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void downloadVideo(int id) {
-        getView().startAction(new ActionDownloadVideo(mToken, 42));
+    public void downloadVideo(int id, String title) {
+        if (title == null)
+            title = "temp";
+        mTitle = mActivity.getExternalFilesDir(null) +
+                File.separator + title + ".mp4";
+        getView().showDownloadVideo();
+        getView().startAction(new ActionDownloadVideo(mToken, id));
     }
 
     @Override
@@ -54,12 +59,12 @@ public class ItemVideoPresenter extends BasePresenter<ItemVideoView.View>
     public void onEvent(DownloadVideoSuccessEvent event) {
         Log.d("f", "ff2");
         writeResponseBodyToDisk(event.getFile());
+        getView().showVideoDownloadingFinished(mTitle);
     }
 
     private boolean writeResponseBodyToDisk(ResponseBody body) {
         try {
-            // todo change the file location/name according to your needs
-            File futureStudioIconFile = new File(mActivity.getExternalFilesDir(null) + File.separator + "ff.mp4");
+            File futureStudioIconFile = new File(mTitle);
 
             InputStream inputStream = null;
             OutputStream outputStream = null;
@@ -83,8 +88,6 @@ public class ItemVideoPresenter extends BasePresenter<ItemVideoView.View>
                     outputStream.write(fileReader, 0, read);
 
                     fileSizeDownloaded += read;
-
-                    Log.d("TAG", "file download: " + fileSizeDownloaded + " of " + fileSize);
                 }
 
                 outputStream.flush();

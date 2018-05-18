@@ -22,7 +22,7 @@ public class DownloadActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_download);
+        setContentView(R.layout.dialog_send_video);
         ButterKnife.bind(this);
 
     }

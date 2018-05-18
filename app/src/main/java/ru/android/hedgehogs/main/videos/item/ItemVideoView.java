@@ -13,11 +13,12 @@ import ru.android.hedgehogs.network.events.download_video.DownloadVideoSuccessEv
 public interface ItemVideoView {
 
     interface View extends BaseView.View {
-
+        void showDownloadVideo();
+        void showVideoDownloadingFinished(String path);
     }
 
     interface Presenter extends BaseView.Presenter<ItemVideoView.View>{
-        void downloadVideo(int id);
+        void downloadVideo(int id, String title);
         void onEvent(DownloadVideoErrorEvent event);
         void onEvent(DownloadVideoSuccessEvent event);
     }
